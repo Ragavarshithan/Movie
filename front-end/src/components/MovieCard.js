@@ -47,7 +47,7 @@ export default function MovieCard({Movie,CastList,Director,Img,Storyline,Genre,R
           </IconButton>
         }
         title={Movie}
-        subheader={Releasedate}
+        subheader={Genre}
       />
       <CardMedia
         component="img"
@@ -57,7 +57,7 @@ export default function MovieCard({Movie,CastList,Director,Img,Storyline,Genre,R
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-         {Genre}
+         {Releasedate}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
