@@ -59,13 +59,13 @@ const Home = () => {
           <button onClick={() => filterByLanguage("Korean")} className={`m-1 border-orange-700 text-dark bg-orange-700 hover:bg-white hover:text-orange-700 ${selectedLanguage === "Korean" ? "bg-white text-orange-700" : ""}`}>Korean</button>
         </div>
         <div className='row'>
-          {filteredMovies.map(({ movId, movName, castList, director, image, storyLine, genre, releaseDate, rating,language }) => (
+          {filteredMovies.map(({ movId, movName, castList, director, imageUrl, storyLine, genre, releaseDate, rating,language }) => (
             <div key={movId} className='col-md-4 mb-3'>
               <MovieCard
                 Movie={movName}
                 Language={language}
                 Releasedate={new Date(releaseDate).toLocaleDateString()}
-                Img={Master}
+                Img={imageUrl}
                 CastList={castList}
                 Storyline={storyLine}
                 Director={director}

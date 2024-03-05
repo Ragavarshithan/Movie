@@ -42,7 +42,14 @@ const UpdateMovie = () => {
         
         const saveChanges = (e) => {
             e.preventDefault();
-            const Movie = { movName, castList,director, storyLine, genre, releaseDate, rating,language };
+
+            // Convert the image to base64
+      const reader = new FileReader();
+      reader.readAsDataURL(image);
+      reader.onloadend = () => {
+        const base64Image = reader.result;
+
+            const Movie = { movName, castList,director, storyLine, genre,imageUrl: base64Image, releaseDate, rating,language };
             axios
               .put(Movie_BASE_REST_API_URL + '/' + id, Movie)
               .then((response) => {
@@ -53,7 +60,7 @@ const UpdateMovie = () => {
               });
           };
 
-    
+        }
   return (
     <div>
     <br />
@@ -105,16 +112,14 @@ const UpdateMovie = () => {
                   onChange={(e) => setLanguage(e.target.value)}
                   required
                 />
-                {/* <label className='form-label'>Image :</label>
+               <label className='form-label'>Image :</label>
                 <input
-                  type='text'
-                  placeholder='Image'
+                  type='file'
                   name='image'
                   className='form-control'
-                  value={imageUrl}
-                  onChange={(e) => setImageUrl(e.target.value)}
+                  onChange={(e) => setImage(e.target.files[0])}
                   required
-                /> */}
+                /> 
                 <label className='form-label'>Story Line :</label>
                 <input
                   type='text'
