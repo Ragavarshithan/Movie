@@ -9,7 +9,7 @@ import Collapse from '@mui/material/Collapse';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
+import { red, yellow } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -57,7 +57,10 @@ export default function MovieCard({Movie,CastList,Language,Director,Img,Storylin
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-         {Language}
+         {Language} 
+         <Avatar sx={{ bgcolor: yellow[900] }} aria-label="recipe">
+         {Rating}
+          </Avatar>
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
