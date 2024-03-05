@@ -25,12 +25,9 @@ public class MovieController {
     private MovieRepository movieRepository;
 
     @PostMapping("/add")
-    public Movie createMovie(@RequestBody Movie movie){
-        return movieService.createMovie(movie);
-    }
-
-
-
+   public Movie createMovie(@RequestBody Movie movie){
+       return movieService.createMovie(movie);
+   }
     @GetMapping("/view")
     public List<Movie>getAllMovies(){
         return movieService.getAllMovies();

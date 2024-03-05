@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import IMDB from "../imdb.png";
+import IMDB from "../images/imdb.png";
 
 export default function Header() {
   return (

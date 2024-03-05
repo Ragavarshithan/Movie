@@ -20,41 +20,37 @@ const AddMovie = () => {
     const saveMovie = async (e) => {
         e.preventDefault();
 
-        const formData = new FormData();
-        formData.append('movName', movName);
-        formData.append('castList', castList);
-        formData.append('director',director)
-        formData.append('language',language);
-        formData.append('image', image); // Append the image file to FormData
-        formData.append('storyLine', storyLine);
-        formData.append('genre', genre);
-        formData.append('releaseDate', releaseDate);
-        formData.append('rating', rating);
-
-        try {
-            const response = await axios.post('http://localhost:8080/movies/add', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data' // Set content type for FormData
-                }
-            })
-            .then((response) => {
-                          console.log(response);
-                          navigate(`/movies/view/${response.data.movId}`)
-                      });
-            console.log(response);
-            // Handle success
-        } catch (error) {
-            console.error(error);
-            // Handle error
-        }
-    };
-
-    const handleImageChange = (l) => {
-        setImage(l.target.files[0]);
-    }
+        // const formData = new FormData();
+        // formData.append('movName', movName);
+        // formData.append('castList', castList);
+        // formData.append('director',director)
+        // formData.append('language',language);
+        // formData.append('image', image); // Append the image file to FormData
+        // formData.append('storyLine', storyLine);
+        // formData.append('genre', genre);
+        // formData.append('releaseDate', releaseDate);
+        // formData.append('rating', rating);
 
 
- 
+        axios
+      .post('http://localhost:8080/movies/add', {
+        movName,
+        castList,
+        director,
+        language,
+        image,
+        storyLine,
+        genre,
+        releaseDate,
+        rating
+      })
+      .then((response) => {
+        console.log(response);
+        // Handle response
+        navigate(`/movies/view/${response.data.id}`);
+      });
+  };
+  
   return (
     <div>
     <br />
