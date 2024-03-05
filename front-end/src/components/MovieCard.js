@@ -26,7 +26,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function MovieCard({Movie,CastList,Director,Img,Storyline,Genre,Releasedate,Rating,Update,Delete}) {
+export default function MovieCard({Movie,CastList,Language,Director,Img,Storyline,Genre,Releasedate,Rating,Update,Delete}) {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -57,7 +57,7 @@ export default function MovieCard({Movie,CastList,Director,Img,Storyline,Genre,R
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-         {Releasedate}
+         {Language}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -85,8 +85,11 @@ export default function MovieCard({Movie,CastList,Director,Img,Storyline,Genre,R
           <Typography paragraph>
           Story: {Storyline}
           </Typography>
-          <Typography>
+          <Typography paragraph>
           IMDB Rating: {Rating}
+          </Typography>
+          <Typography>
+          Released on: {Releasedate} 
           </Typography>
           {Update} {Delete}
         </CardContent>

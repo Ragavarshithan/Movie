@@ -16,7 +16,7 @@ public class Movie {
     private String movName;
     private String castList;
     private String director;
-
+    private String language;
 //    @Lob
 //    private byte[] image;
     private String imageUrl;

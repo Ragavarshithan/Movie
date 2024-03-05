@@ -10,6 +10,7 @@ const AddMovie = () => {
     const [movName, setMovieName] = useState('');
     const [castList, setCastList] = useState('');
     const [director,setDirector] = useState('');
+    const [language,setLanguage]  = useState("");
     const [image, setImage] = useState(null); // State to hold the selected image file
     const [storyLine, setStoryLine] = useState('');
     const [genre, setGenre] = useState('');
@@ -23,6 +24,7 @@ const AddMovie = () => {
         formData.append('movName', movName);
         formData.append('castList', castList);
         formData.append('director',director)
+        formData.append('language',language);
         formData.append('image', image); // Append the image file to FormData
         formData.append('storyLine', storyLine);
         formData.append('genre', genre);
@@ -94,12 +96,22 @@ const AddMovie = () => {
                   onChange={(e) => setDirector(e.target.value)}
                   required
                 />
-                <label className='form-label'>Image :</label>
+                {/* <label className='form-label'>Image :</label>
                 <input
                   type='file'
                   name='image'
                   className='form-control'
                   onChange={handleImageChange}
+                  required
+                /> */}
+                <label className='form-label'>Language :</label>
+                <input
+                  type='text'
+                  placeholder='Language'
+                  name='language'
+                  className='form-control'
+                  value={language}
+                  onChange={(e) => setLanguage(e.target.value)}
                   required
                 />
                 <label className='form-label'>Story Line :</label>

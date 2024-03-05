@@ -10,6 +10,7 @@ const UpdateMovie = () => {
     const[movName,setMovieName] = useState('');
     const[castList,setCastList] = useState('');
     const[director,setDirector] = useState('');
+    const [language,setLanguage]  = useState("");
     const[image,setImage] = useState('');
     const[storyLine,setStoryLine] = useState('');
     const[genre,setGenre] = useState('');
@@ -27,6 +28,7 @@ const UpdateMovie = () => {
                         setMovieName(response.data.movName);
                         setCastList(response.data.castList);
                         setDirector(response.data.director);
+                        setLanguage(response.data.language)
                         setImage(response.data.image)
                         setStoryLine(response.data.storyLine);
                         setGenre(response.data.genre);
@@ -40,7 +42,7 @@ const UpdateMovie = () => {
         
         const saveChanges = (e) => {
             e.preventDefault();
-            const Movie = { movName, castList,director, storyLine, genre, releaseDate, rating };
+            const Movie = { movName, castList,director, storyLine, genre, releaseDate, rating,language };
             axios
               .put(Movie_BASE_REST_API_URL + '/' + id, Movie)
               .then((response) => {
@@ -91,6 +93,16 @@ const UpdateMovie = () => {
                   className='form-control'
                   value={director}
                   onChange={(e) => setDirector(e.target.value)}
+                  required
+                />
+                 <label className='form-label'>Language :</label>
+                <input
+                  type='text'
+                  placeholder='Language'
+                  name='language'
+                  className='form-control'
+                  value={language}
+                  onChange={(e) => setLanguage(e.target.value)}
                   required
                 />
                 {/* <label className='form-label'>Image :</label>
